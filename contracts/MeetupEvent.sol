@@ -26,10 +26,7 @@ contract MeetupEvent {
         uint _value
         );
 
-//    event EventRsvpDeclined(
-//        address indexed _from,
-//        string _reason
-//        );
+    event Error(address indexed _sender, bytes32 error);
 
     modifier mustHaveSpace() {
         if(eventCap != 0) require(rsvpList.length < eventCap);
@@ -47,22 +44,21 @@ contract MeetupEvent {
         _;
     }
 
-    function isRsvped(address _address) public constant returns(bool isIndeed) {
+    function isRsvped(address _address) public view returns(bool isIndeed) {
       return rsvpData[_address].isRsvped;
     }
 
-    function MeetupEvent(uint _price,
-                        address _meetupOwner,
+    function MeetupEvent(uint _priceInWei,
+                        address _owner,
                         uint _cap,
-                        uint _date) public {
+                        uint _dateAsUnixTimestamp)
+      public {
         require(_date > now);
         creator = msg.sender;
-        costOfEvent = _price;
-        owner = _meetupOwner;
+        costOfEvent = _priceInWei;
+        owner = _owner;
         eventCap = _cap;
-        dateOfEvent = _date;
-        // some defaults:
-        // "1000000000000000000", "0xca35b7d915458ef540ade6068dfe2f44e8fa733c", 3, "1508274109"
+        dateOfEvent = _dateAsUnixTimestamp;
     }
 
     function rsvpMe(string _name) public payable mustHaveSpace {
@@ -84,7 +80,7 @@ contract MeetupEvent {
     }
 
     function ownerWithdrawal() public isEnded isOwner {
-        var _balance = this.balance;
+        uint _balance = this.balance;
         owner.transfer(_balance);
         EventOwnerWithdrawal(owner, _balance);
     }

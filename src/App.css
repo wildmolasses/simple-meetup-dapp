@@ -3,10 +3,12 @@
 body,
 .pure-g [class*=pure-u] {
   font-family: 'Open Sans', sans-serif;
+  color: #000;
+  background-color: #ECF0F1;
 }
 
 h1, h2, h3 {
-  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  font-family: 'Roboto', 'Arial Narrow', sans-serif;
 }
 
 code {
@@ -18,51 +20,53 @@ code {
 
 .container {
   box-sizing: border-box;
-  width: 100%;
+  max-width: 700px;
   padding: 45px 20px;
+  text-align: center;
 }
 
 .pure-button-primary {
-  background-color: #0c1a2b;
+  background-color: #3C3C3D;
+  text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: .8em;
+    padding: .5em;
 }
 
 .pure-button-primary:hover {
-  background-color: #233e5e;
+  background-color: #6C6C6D;
 }
 
 .pure-form input[type="text"]:focus {
   border-color: #0c1a2b;
 }
 
-/* NAVBAR */
-
-.navbar {
-  position: fixed;
-  padding: 5px;
-  background: #0c1a2b;
-  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+input {
+  color: #000;
 }
 
-.navbar a {
-  color: #fff;
+.flex-container {
+  display: flex; width: 100%; padding: 3px; justify-content: center; align-items: center; align-content: stretch;
 }
 
-.navbar a:active,
-.navbar a:focus,
-.navbar a:hover {
-  background: #233e5e;
+li {
+  list-style-type: none;
+  padding: .5em;
+  border: 1px solid #000;
+  border-radius: 7px;
+  margin: 2px;
 }
 
-.navbar .pure-menu-heading {
-  font-weight: bold;
-  text-transform: none;
+.smaller {
+  font-size: .8em;
 }
 
-.navbar .navbar-right {
-  float: right;
+a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #C99D66;
 }
 
-.navbar .uport-logo {
-  height: 16px;
-  margin-right: 10px;
+p.description {
+  text-align: justify;
 }
