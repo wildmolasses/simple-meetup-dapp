@@ -3,8 +3,6 @@ import MeetupEventContract from '../build/contracts/MeetupEvent.json'
 import getWeb3 from './utils/getWeb3'
 import Moment from 'moment'
 
-import './css/oswald.css'
-import './css/open-sans.css'
 import './css/roboto.css'
 import './css/pure-min.css'
 import './App.css'

@@ -53,7 +53,7 @@ contract MeetupEvent {
                         uint _cap,
                         uint _dateAsUnixTimestamp)
       public {
-        require(_date > now);
+        require(_dateAsUnixTimestamp > now);
         creator = msg.sender;
         costOfEvent = _priceInWei;
         owner = _owner;
